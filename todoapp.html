@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+</head>
+
+<body>
+
+    <center>
+        <h1>Add Task</h1>
+
+        <input type="text" id="editid">
+
+        <label>Task add</label>
+        <input type="text" id="task">
+
+        <br><br>
+
+        <button onclick="addTask()">submit</button>
+
+        <h1>View Task</h1>
+
+        <br>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Task</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="view">
+
+            </tbody>
+        </table>
+
+    </center>
+
+</body>
+
+<script>
+
+    let data = []
+
+    const addTask = () => {
+
+        let task = document.getElementById('task').value
+        let editid = document.getElementById('editid').value
+        let id = Math.floor(Math.random() * 1000)
+
+        let data = JSON.parse(localStorage.getItem('user'))
+
+        let obj = {
+            task: task,
+            id: id
+        }
+
+        if (editid) {
+            let update = JSON.parse(localStorage.getItem('user'))
+
+            let add = update.filter((val, i) => {
+                if (val.id == editid) {
+                    val.task = task
+                }
+                return val
+            })
+
+            localStorage.setItem('user', JSON.stringify(add))
+            document.getElementById('editid').value = ''
+        }
+        else {
+            if (localStorage.getItem('user') === null && localStorage.getItem('user') === undefined) {
+                data.push(obj)
+                localStorage.setItem('user', JSON.stringify(data))
+            }
+            else {
+                let record = JSON.parse(localStorage.getItem('user'))
+
+                record.push(obj)
+
+                localStorage.setItem('user', JSON.stringify(record))
+            }
+        }
+
+
+        document.getElementById('task').value = ''
+
+        console.log(data);
+
+        viewTask()
+    }
+
+    const viewTask = () => {
+        record = JSON.parse(localStorage.getItem('user'))
+
+        let tbl = ''
+
+        record.map((val, i) => {
+            tbl += `
+                <tr>
+                    <td>${val.id}</td>    
+                    <td>${val.task}</td>    
+                    <td>
+                        <button onclick="deleteTask(${val.id})">Delete</button>
+                        <button onclick="editTask(${val.id})">Edit</button>
+                    </td>    
+                </tr>
+            `
+        })
+
+        document.getElementById('view').innerHTML = tbl
+    }
+
+    viewTask()
+
+    const deleteTask = (id) => {
+        record = JSON.parse(localStorage.getItem('user'))
+
+        let Delete = record.filter((val, i) => {
+            return val.id != id
+        })
+
+        localStorage.setItem('user', JSON.stringify(Delete))
+
+        viewTask()
+    }
+
+    const editTask = (id) => {
+        record = JSON.parse(localStorage.getItem('user'))
+
+        editData = record.filter((val, i) => {
+            return val.id == id
+        })
+
+        document.getElementById('task').value = editData[0].task
+        document.getElementById('editid').value = editData[0].id
+
+        console.log(editData);
+    }
+
+
+
+</script>
+
+</html>
