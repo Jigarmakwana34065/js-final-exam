@@ -5,40 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <center>
-        <h1>Add Task</h1>
+    <div class="todo-app">
+        <div class="container">
+            <div class="row">
+                <div class="main">
+                    <div class="add-task">
+                        <h1>todo app list</h1>
 
-        <input type="text" id="editid">
+                        <input type="text" id="editid">
 
-        <label>Task add</label>
-        <input type="text" id="task">
+                        <div class="add">
+                            <input type="text" id="task" placeholder="Enter task">
 
-        <br><br>
+                            <button onclick="addTask()">submit</button>
+                        </div>
+                    </div>
 
-        <button onclick="addTask()">submit</button>
+                    <div class="view-task">
 
-        <h1>View Task</h1>
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Task</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="view">
 
-        <br>
+                            </tbody>
+                        </table>
+                    </div>
 
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Task</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="view">
 
-            </tbody>
-        </table>
-
-    </center>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
@@ -102,12 +110,12 @@
         record.map((val, i) => {
             tbl += `
                 <tr>
-                    <td>${val.id}</td>    
-                    <td>${val.task}</td>    
+                    <td>${val.id}</td>
+                    <td>${val.task}</td>
                     <td>
                         <button onclick="deleteTask(${val.id})">Delete</button>
                         <button onclick="editTask(${val.id})">Edit</button>
-                    </td>    
+                    </td>
                 </tr>
             `
         })

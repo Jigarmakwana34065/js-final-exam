@@ -1,0 +1,41 @@
+.todo-app .container {
+  max-width: 1200px;
+  margin: 0px auto;
+}
+.todo-app .container .row .main {
+  width: 80%;
+  margin: 0px auto;
+}
+.todo-app .container .row .main .add-task h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 600;
+}
+.todo-app .container .row .main .add-task #editid {
+  display: none;
+}
+.todo-app .container .row .main .add-task .add {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.todo-app .container .row .main .add-task .add input {
+  width: 100%;
+  padding: 10px;
+  color: gray;
+  outline: none;
+}
+.todo-app .container .row .main .add-task .add input:focus {
+  border: 2px solid gray;
+}
+.todo-app .container .row .main .add-task .add button {
+  position: absolute;
+  right: 0px;
+  padding: 9px;
+  width: 10%;
+  background-color: #1d919f;
+  border: 0px;
+  color: white;
+  font-size: 17px;
+}/*# sourceMappingURL=style.css.map */

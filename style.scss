@@ -1,0 +1,59 @@
+.todo-app {
+    .container {
+        max-width: 1200px;
+        margin: 0px auto;
+
+        .row {
+            .main {
+                width: 80%;
+                margin: 0px auto;
+
+                .add-task {
+                    h1 {
+                        text-align: center;
+                        text-transform: uppercase;
+                        font-size: 40px;
+                        font-weight: 600;
+                    }
+
+                    #editid {
+                        display: none;
+                    }
+
+                    .add {
+                        display: flex;
+                        flex-wrap: wrap;
+                        position: relative;
+
+                        input {
+                            width: 100%;
+                            padding: 10px;
+                            color: gray;
+                            outline: none;
+
+                            &:focus {
+                                border: 2px solid gray;
+                            }
+                        }
+
+                        button {
+                            position: absolute;
+                            right: 0px;
+                            padding: 9px;
+                            width: 10%;
+                            background-color: #1d919f;
+                            border: 0px;
+                            color: white;
+                            font-size: 17px;
+
+                        }
+                    }
+
+                }
+                .view-task {
+                    
+                }
+            }
+        }
+    }
+}
