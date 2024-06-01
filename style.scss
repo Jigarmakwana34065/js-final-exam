@@ -50,8 +50,73 @@
                     }
 
                 }
+
                 .view-task {
-                    
+                    .head {
+                        padding: 15px 0px;
+                        display: flex;
+                        justify-content: space-between;
+                        border-bottom: 2px solid #333;
+
+                        .no {
+                            display: block;
+                            width: 10%;
+                        }
+                        .content {
+                            width: 80%;
+                        }
+                        .acion {
+                            width: 10%;
+                        }
+                    }
+                    .view {
+                        .box {
+                            padding: 10px 0px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            border-bottom: 1px solid gray;
+
+                            .span {
+                                display: block;
+                                width: 10%;
+                                color: #333;
+                            }
+
+                            .content {
+                                width: 80%;
+
+                                h3 {
+                                    margin: 0px;
+                                    color: gray;
+                                    padding: 9px;
+                                    text-transform: capitalize;
+                                }
+                            }
+
+                            .btn {
+                                width: 10%;
+                                display: flex;
+                                justify-content: space-around;
+
+                                .edit {
+                                    border: 0px;
+                                    background-color: #1d919f;
+                                    color: white;
+                                    padding: 9px;
+                                    border-radius: 4px;
+                                }
+
+                                .delete {
+                                    border: 0px;
+                                    background-color: #f60000;
+                                    color: white;
+                                    padding: 9px;
+                                    border-radius: 4px;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

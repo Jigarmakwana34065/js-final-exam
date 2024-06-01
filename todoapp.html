@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
@@ -27,22 +28,22 @@
                     </div>
 
                     <div class="view-task">
+                        <div class="head">
+                            <div class="no">
+                                <h2>No</h2>
+                            </div>
+                            <div class="content">
+                                <h2>Task</h2>
+                            </div>
+                            <div class="action">
+                                <h2>Action</h2>
+                            </div>
 
-                        <table border="1">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Task</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="view">
+                        </div>
+                        <div id="view" class="view">
 
-                            </tbody>
-                        </table>
+                        </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -105,22 +106,26 @@
     const viewTask = () => {
         record = JSON.parse(localStorage.getItem('user'))
 
-        let tbl = ''
+        let data = ''
 
         record.map((val, i) => {
-            tbl += `
-                <tr>
-                    <td>${val.id}</td>
-                    <td>${val.task}</td>
-                    <td>
-                        <button onclick="deleteTask(${val.id})">Delete</button>
-                        <button onclick="editTask(${val.id})">Edit</button>
-                    </td>
-                </tr>
+            data += `
+                        <div class="box">
+                            <div class="span">
+                                ${val.id}
+                            </div>
+                            <div class="content">
+                                <h3>${val.task}</h3>
+                            </div>
+                            <div class="btn">
+                                <button class="edit" onclick="editTask(${val.id})"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button class="delete" onclick="deleteTask(${val.id})"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                        </div>
             `
         })
 
-        document.getElementById('view').innerHTML = tbl
+        document.getElementById('view').innerHTML = data
     }
 
     viewTask()
@@ -149,8 +154,6 @@
 
         console.log(editData);
     }
-
-
 
 </script>
 
